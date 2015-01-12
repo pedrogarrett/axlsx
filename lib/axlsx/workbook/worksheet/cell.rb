@@ -395,7 +395,7 @@ module Axlsx
         wvalue = string
       end
 
-      (string.to_s.count(Worksheet::THIN_CHARS) + 3.0) * (font_size/10.0)
+      (wvalue.to_s.count(Worksheet::THIN_CHARS) + 3.0) * (font_size/10.0)
     end
 
     # we scale the font size if bold style is applied to either the style font or
