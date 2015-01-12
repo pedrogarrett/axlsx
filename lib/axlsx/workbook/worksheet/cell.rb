@@ -386,6 +386,15 @@ module Axlsx
     #  - scaling is not linear as font sizes increase
     def string_width(string, font_size)
       font_scale = font_size / 10.0
+
+      if self.row.worksheet.autowidth_max_decimals && ['Float','BigDecimal'].include?(value.class.name)
+        wvalue = string.round(self.row.worksheet.autowidth_max_decimals)
+      elsif self.row.worksheet.autowidth_trims_floats && value.is_a?(Float)
+        wvalue = string.to_s.sub(/000+[12]$/,'')
+      else
+        wvalue = string
+      end
+
       (string.to_s.count(Worksheet::THIN_CHARS) + 3.0) * (font_size/10.0)
     end
 

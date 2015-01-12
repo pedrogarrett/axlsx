@@ -9,6 +9,9 @@ module Axlsx
     # This is used for autowidth calculations
     THIN_CHARS = '^.acfijklrstxzFIJL()-'.freeze
     
+    attr_accessor :autowidth_trims_floats
+    attr_accessor :autowidth_max_decimals
+
     # Creates a new worksheet.
     # @note the recommended way to manage worksheets is Workbook#add_worksheet
     # @see Workbook#add_worksheet
