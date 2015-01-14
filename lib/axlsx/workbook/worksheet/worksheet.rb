@@ -11,6 +11,7 @@ module Axlsx
     
     attr_accessor :autowidth_trims_floats
     attr_accessor :autowidth_max_decimals
+    attr_accessor :autoconvert_strings
 
     # Creates a new worksheet.
     # @note the recommended way to manage worksheets is Workbook#add_worksheet
