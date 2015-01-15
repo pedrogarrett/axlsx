@@ -436,8 +436,12 @@ module Axlsx
         :time
       elsif v.is_a?(TrueClass) || v.is_a?(FalseClass)
         :boolean
+      elsif v.is_a?(Fixnum)
+        :integer
       elsif self.row.worksheet.autoconvert_strings && v.to_s =~ Axlsx::NUMERIC_REGEX
         :integer
+      elsif ['Float','BigDecimal'].include?(v.class.name)
+        :float
       elsif self.row.worksheet.autoconvert_strings && v.to_s =~ Axlsx::FLOAT_REGEX
         :float
       elsif v.to_s =~ Axlsx::ISO_8601_REGEX
