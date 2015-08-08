@@ -95,7 +95,7 @@ module Axlsx
     # @see [SheetFormatPr]
     def sheet_format_pr
       @sheet_format_pr ||= SheetFormatPr.new
-      yeild @sheet_format_pr if block_given?
+      yield @sheet_format_pr if block_given?
       @sheet_format_pr
     end
 
